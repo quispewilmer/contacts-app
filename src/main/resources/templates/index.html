@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="~{common/head_base :: head_base(title = ~{::title}, links = ~{::link}, metadata = ~{::meta})}">
+    <title>Hello world</title>
+    <link rel="stylesheet" href="">
+    <meta>
 </head>
-<body>
-    <h1>Hello world</h1>
+<body th:replace="~{common/body_base :: body_base(content = ~{::th:block})}">
+    <th:block>
+        <p>Hello world</p>
+    </th:block>
 </body>
 </html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" th:replace="~{html_base :: common_doc(lang = 'en', ~{::head}, ~{})}">
+    <head th:fragment="head_base(title, links, metadata)">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title th:replace="${title}">Contacts App</title>
+
+        <link rel="stylesheet" th:href="@{/styles/styles.css}">
+
+        <th:block th:replace="${links}"></th:block>
+        <th:block th:replace="${metadata}"></th:block>
+    </head>
+</html>
