@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="~{common/head_base :: head_base(
+title = ~{::title},
+links = ~{::link} ?: _,
+metadata = ~{::meta})} ?: _"
+>
+    <title th:text="#{page.title('Sign Up')}"></title>
 </head>
-<body>
-
+<body th:replace="~{common/body_base :: body_base(content = ~{::th:block})}">
+<th:block>
+    <div class="card register-card">
+        <h1 class="register-card__title h1">Sign Up</h1>
+        <form action="#" th:object="${user}" th:action="@{/user/register}" method="POST" class="register-card__form form form--register">
+            <label th:attr="for='username'">Username:</label>
+            <input type="text" id="username" name="username" th:field="*{username}" required>
+            <label th:attr="for='password'">Password:</label>
+            <input type="password" id="password" name="password" th:field="*{password}" required>
+            <label th:attr="for='repeat-password'">Repeat password:</label>
+            <input type="password" id="repeat-password" name="repeat-password" required>
+            <button class="button register-card__button register-card--signup">Sign Up</button>
+        </form>
+    </div>
+</th:block>
 </body>
 </html>

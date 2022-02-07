@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head th:replace="~{common/head_base :: head_base(title = ~{::title}, links = ~{::link}, metadata = ~{::meta})}">
-    <title>Hello world</title>
-    <link rel="stylesheet" href="">
-    <meta>
+<head th:replace="~{common/head_base :: head_base(
+title = ~{::title},
+links = ~{::link} ?: _,
+metadata = ~{::meta})} ?: _"
+>
+    <title th:text="#{page.title('Home')}"></title>
 </head>
 <body th:replace="~{common/body_base :: body_base(content = ~{::th:block})}">
-    <th:block>
-        <p>Hello world</p>
-    </th:block>
+<th:block>
+    <div class="card welcome-card">
+        <h1 class="welcome-card__title h1" th:text="#{app.name}"></h1>
+        <span class="welcome-card__version" th:text="#{app.version}"></span>
+        <button class="button welcome-card__button welcome-card--signin" th:href="@{/login}">Sign In</button>
+        <button class="button welcome-card__button welcome-card--signup" th:href="@{/register}">Sign Up</button>
+    </div>
+</th:block>
 </body>
 </html>
