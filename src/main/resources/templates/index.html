@@ -10,10 +10,14 @@ metadata = ~{::meta})} ?: _"
 <body th:replace="~{common/body_base :: body_base(content = ~{::th:block})}">
 <th:block>
     <div class="card welcome-card">
-        <h1 class="welcome-card__title h1" th:text="#{app.name}"></h1>
-        <span class="welcome-card__version" th:text="#{app.version}"></span>
-        <button class="button welcome-card__button welcome-card--signin" th:href="@{/login}">Sign In</button>
-        <button class="button welcome-card__button welcome-card--signup" th:href="@{/register}">Sign Up</button>
+        <div class="welcome-card__parameters">
+            <h1 class="welcome-card__title h1" th:text="#{app.name}"></h1>
+            <span class="welcome-card__version" th:text="#{app.version}"></span>
+        </div>
+        <div class="welcome-card__buttons">
+            <a class="button welcome-card__button welcome-card--signin" th:href="@{/login}">Sign In</a>
+            <a class="button welcome-card__button welcome-card--signup" th:href="@{/register}">Sign Up</a>
+        </div>
     </div>
 </th:block>
 </body>

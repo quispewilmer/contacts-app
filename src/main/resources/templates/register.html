@@ -11,13 +11,22 @@ metadata = ~{::meta})} ?: _"
 <th:block>
     <div class="card register-card">
         <h1 class="register-card__title h1">Sign Up</h1>
-        <form action="#" th:object="${user}" th:action="@{/user/register}" method="POST" class="register-card__form form form--register">
-            <label th:attr="for='username'">Username:</label>
-            <input type="text" id="username" name="username" th:field="*{username}" required>
-            <label th:attr="for='password'">Password:</label>
-            <input type="password" id="password" name="password" th:field="*{password}" required>
-            <label th:attr="for='repeat-password'">Repeat password:</label>
-            <input type="password" id="repeat-password" name="repeat-password" required>
+        <form action="#" th:object="${user}" th:action="@{/user/register}" method="POST"
+              class="register-card__form form form--register">
+            <div class="form__section">
+                <label th:attr="for='username'" class="form__label">Username:</label>
+                <input type="text" id="username" name="username" th:field="*{username}" class="form__input-text"
+                       required>
+            </div>
+            <div class="form__section">
+                <label th:attr="for='password'" class="form__label">Password:</label>
+                <input type="password" id="password" name="password" th:field="*{password}" class="form__input-text"
+                       required>
+            </div>
+            <div class="form__section">
+                <label th:attr="for='repeat-password'" class="form__label">Repeat password:</label>
+                <input type="password" id="repeat-password" name="repeat-password" class="form__input-text" required>
+            </div>
             <button class="button register-card__button register-card--signup">Sign Up</button>
         </form>
     </div>
